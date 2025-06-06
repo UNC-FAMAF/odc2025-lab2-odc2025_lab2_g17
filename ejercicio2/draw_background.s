@@ -85,7 +85,6 @@ draw_background:
 	//--reset framebuffer_base y color
 	mov x0, x20
 	mov w10, w19
-	
 
 //----------
 //--Capa 2--
@@ -953,7 +952,186 @@ draw_background:
 	//--reset framebuffer_base y color
 	mov x0, x20
 	mov w10, w19
+	
+//-------
+//--Hud--
+//-------
 
+//------------------
+//--Barras de vida--
+//------------------
+
+//--Contenedores
+
+	//--Definimos color
+	movz x10, 0xffcf, lsl 16
+	movk x10, 0xd8dc, lsl 00
+	
+	//--Copiamos color
+	mov w19, w10
+
+//--Contenedor 1
+
+	//--Cargamos los parámetros
+	mov x0, x20
+	mov x1, #5
+	mov x2, #2
+	mov x3, #25
+	mov x4, #4
+	mov w10, w19
+	bl draw_rect_cell
+	
+	//--reset framebuffer_base y color
+	mov x0, x20
+	mov w10, w19
+	
+//--Contenedor 2
+
+	//--param draw_rect_cell
+	mov x0, x20
+	mov x1, #5
+	mov x2, #36
+	mov x3, #25
+	mov x4, #4
+	mov w10, w19
+	bl draw_rect_cell
+	
+	//--restauramos framebuffer y color
+	mov x0, x20
+	mov w10, w19
+
+//--Vida
+
+	//--Definimos color
+	movz x10, 0xff18, lsl 16
+	movk x10, 0xd61e, lsl 00
+	
+	//--Copiamos color
+	mov w19, w10
+
+//--Vida 1
+
+	//--Cargamos los parámetros
+	mov x0, x20
+	mov x1, #6
+	mov x2, #3
+	mov x3, #23
+	mov x4, #2
+	mov w10, w19
+	bl draw_rect_cell
+	
+	//--Reset framebuffer_base y color
+	mov x0, x20
+	mov w10, w19
+
+//--Vida 2
+	
+	//--Cargamos los parámetros
+	mov x0, x20
+	mov x1, #6
+	mov x2, #37
+	mov x3, #23
+	mov x4, #2
+	mov w10, w19
+	bl draw_rect_cell
+	
+	//--Reset framebuffer_color y color
+	mov x0, x20
+	mov w10, w19
+
+//----------
+//--Timmer--
+//----------
+
+	//--Definimos color
+	movz x10, 0xffb8, lsl 16
+	movk x10, 0x0404, lsl 00
+	
+	//--Copiamos color
+	mov w19, w10
+	
+//--Primer dígito: 9--
+
+//--Line 1
+
+	//--Cargamos parámetros
+	mov x0, x20
+	mov x1, #1
+	mov x2, #28
+	mov x3, #3
+	mov w10, w19
+	bl draw_line_cell
+	
+	//--Reset framebuffer_base y color
+	mov x0, x20
+	mov w10, w19
+
+//--Line 2
+
+	//--Cargamos parámetros
+	mov x0, x20
+	mov x1, #3
+	mov x2, #28
+	mov x3, #3
+	mov w10, w19
+	bl draw_line_cell
+	
+	//--Reset framebuffer_base y color
+	mov x0, x20
+	mov w10, w19
+
+//--Line 3
+	
+	//--Cargamos parámetros
+	mov x0, x20
+	mov x1, #5
+	mov x2, #28
+	mov x3, #3
+	mov w10, w19
+	bl draw_line_cell
+	
+	//--Reset framebuffer_base y color
+	mov x0, x20
+	mov w10, w19
+
+//--Pixel 1
+
+	//--Cargamos parámetros
+	mov x0, x20
+	mov x1, #2
+	mov x2, #28
+	mov w10, w19
+	bl draw_cell
+	
+	//--Reset framebuffer_base y color
+	mov x0, x20
+	mov w10, w19
+
+//--Pixel 2
+
+	//--Cargamos parámetros
+	mov x0, x20
+	mov x1, #2
+	mov x2, #30
+	mov w10, w19
+	bl draw_cell
+	
+	//--Reset framebuffer_base y color
+	mov x0, x20
+	mov w10, w19
+
+//--Pixel 3
+
+	//--Cargamos parámetros
+	mov x0, x20
+	mov x1, #4
+	mov x2, #30
+	mov w10, w19
+	bl draw_cell
+	
+	//--Reset framebuffer_base y color
+	mov x0, x20
+	mov w10, w19
 
 //--Restaurar registros y ret
 	

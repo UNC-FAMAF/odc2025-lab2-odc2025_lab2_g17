@@ -12,21 +12,622 @@ main:
 	// x0 contiene la direccion base del framebuffer
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
+	
 
-	movz x10, 0xC7, lsl 16
-	movk x10, 0x1585, lsl 00
+//-----------
+//--Frame 1--
+//-----------
+	
+	//--Background
+	mov x0, x20
+	bl draw_background
+	
+	//--Timmer 99
+	mov x0, x20
+	mov x7, #9
+	bl draw_timmer
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #4
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_1
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #31
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_2
 
-	mov x2, SCREEN_HEIGH         // Y Size
-loop1:
-	mov x1, SCREEN_WIDTH         // X Size
-loop0:
-	stur w10,[x0]  // Colorear el pixel N
-	add x0,x0,4	   // Siguiente pixel
-	sub x1,x1,1	   // Decrementar contador X
-	cbnz x1,loop0  // Si no terminó la fila, salto
-	sub x2,x2,1	   // Decrementar contador Y
-	cbnz x2,loop1  // Si no es la última fila, salto
+//-----------
+//--Frame 2--
+//-----------
 
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #1
+	bl delete
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #4
+	mov x5, #2
+	mov x6, #1
+	bl draw_player_1
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #31
+	mov x5, #2
+	mov x6, #1
+	bl draw_player_2
+
+//-----------
+//--Frame 3--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #2
+	bl delete
+	
+	//--Timmer 99
+	mov x0, x20
+	mov x7, #8
+	bl draw_timmer
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #7
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_1
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #28
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_2
+	
+//-----------
+//--Frame 4--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #3
+	bl delete
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #7
+	mov x5, #2
+	mov x6, #1
+	bl draw_player_1
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #28
+	mov x5, #2
+	mov x6, #1
+	bl draw_player_2
+	
+//-----------
+//--Frame 5--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #4
+	bl delete
+	
+	//--Timmer 99
+	mov x0, x20
+	mov x7, #7
+	bl draw_timmer
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_1
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_2
+	
+//-----------
+//--Frame 6--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #5
+	bl delete
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_2
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #3
+	bl draw_player_1
+	
+//-----------
+//--Frame 7--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #6
+	bl delete
+	
+	//--Timmer 99
+	mov x0, x20
+	mov x7, #6
+	bl draw_timmer
+	
+	//--Daño
+	mov x0, x20
+	mov x5, #2
+	mov x6, #1
+	bl draw_damage
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_2
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_1
+	
+//-----------
+//--Frame 8--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #7
+	bl delete
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #2
+	bl draw_player_2
+	
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #3
+	bl draw_player_1
+	
+//-----------
+//--Frame 9--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #8
+	bl delete
+	
+	//--Timmer 99
+	mov x0, x20
+	mov x7, #5
+	bl draw_timmer
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_2
+		
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_1
+
+//-----------
+//--Frame 10--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #9
+	bl delete
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_1	
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #3
+	bl draw_player_2
+
+//-----------
+//--Frame 11--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #10
+	bl delete
+	
+	//--Timmer 99
+	mov x0, x20
+	mov x7, #4
+	bl draw_timmer
+	
+	//--Daño
+	mov x0, x20
+	mov x5, #1
+	mov x6, #1
+	bl draw_damage
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_1	
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_2
+
+//-----------
+//--Frame 12--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #7
+	bl delete
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #2
+	bl draw_player_2
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #3
+	bl draw_player_1
+	
+//-----------
+//--Frame 13--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #8
+	bl delete
+	
+	//--Timmer 99
+	mov x0, x20
+	mov x7, #3
+	bl draw_timmer
+	
+	//--Daño
+	mov x0, x20
+	mov x5, #1
+	mov x6, #1
+	bl draw_damage
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_1	
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_2
+	
+//-----------
+//--Frame 14--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #9
+	bl delete
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_1	
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #3
+	bl draw_player_2
+
+//-----------
+//--Frame 15--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #10
+	bl delete
+	
+	//--Timmer 99
+	mov x0, x20
+	mov x7, #2
+	bl draw_timmer
+	
+	//--Daño
+	mov x0, x20
+	mov x5, #1
+	mov x6, #2
+	bl draw_damage
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_1	
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_2
+	
+//-----------
+//--Frame 16--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #5
+	bl delete
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_2
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #3
+	bl draw_player_1
+	
+//-----------
+//--Frame 17--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #6
+	bl delete
+	
+	//--Timmer 99
+	mov x0, x20
+	mov x7, #1
+	bl draw_timmer
+	
+	//--Daño
+	mov x0, x20
+	mov x5, #2
+	mov x6, #2
+	bl draw_damage
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_2
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_1
+	
+//-----------
+//--Frame 12--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #7
+	bl delete
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #2
+	bl draw_player_2
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #3
+	bl draw_player_1
+	
+//-----------
+//--Frame 13--
+//-----------
+
+	//delay
+	bl delay_1s
+	
+	//--delete 
+	mov x0, x20
+	mov x5, #8
+	bl delete
+	
+	//--Timmer 99
+	mov x0, x20
+	mov x7, #0
+	bl draw_timmer
+	
+	//--Scorpion
+	mov x0, x20
+	mov x1, #14
+	mov x2, #10
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_1	
+	
+	//--Subzero	
+	mov x0, x20
+	mov x1, #14
+	mov x2, #25
+	mov x5, #1
+	mov x6, #1
+	bl draw_player_2
+
+
+
+
+
+	
 	// Ejemplo de uso de gpios
 	mov x9, GPIO_BASE
 
