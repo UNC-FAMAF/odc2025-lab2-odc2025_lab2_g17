@@ -8,8 +8,9 @@ Integrante 4:
 Descripción ejercicio 1: Pixel art Scorpion vs Sub-Zero. Mortal Kombat 1. Se dividió la pantalla en celdas de 10x10. Para el fondo se utilizaron Rectangulos, Triangulos, Circulos, Lineas horizontales y verticales. Los personajes están compuestos por rectángulos y lineas.
 
 
-Descripción ejercicio 2: Pixel art Scorpion vs Sub-Zero. Pelea de aproximadamente 10 segundos. Se incorporo al fondo los elementos que no se modifican durante la animación. Se modifica la posición de los personajes, el timmer y la vida.
+Descripción ejercicio 2: Pixel art Scorpion vs Sub-Zero. Pelea de aproximadamente 10 segundos. Se incorporo al fondo los elementos que no se modifican durante la animación. Se modifica la posición de los personajes, el timmer y la vida. Utilice una funcion "delete" en la cual se borra solo el sector que ocupaba el personaje en el frame anterior, ya que si volvia a pintar todo el fondo antes de volver a dibujar se veia un pantallazo negro entre frame y frame.
 
 
 Justificación instrucciones ARMv8:
-	stp/lpd : al llamar a una función desde otra función si dentro de la misma se modifica alguno de los registros que estamos usando esto puede generar conflictos si luego necesitamos usar ese registro en otra parte del programa. Use esta instrucción para salvaguardar los registros que iba a sobreescribir. La instruccion guarda registros de a par.
+Solo utilice el siguiente comando que no esta en LEGv8:
+	stp/lpd : al llamar a una función desde otra función si dentro de la misma se modifica alguno de los registros que estamos usando esto puede generar conflictos si luego necesitamos usar ese registro en otra parte del programa. Use esta instrucción para salvaguardar los registros que iba a sobrescribir. La instrucción guarda registros de a par. En los registros x29 y x30 están almacenados el framepointer y el link register, si no guardaba también estos registros se generaba error al volver de la función con "ret"
